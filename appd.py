@@ -907,8 +907,9 @@ elif menu == "Sistem Rekomendasi":
 
                 # urutan cluster: Laris dulu, lalu Kurang Laris
                 prioritas_map = {
-                    "Laris": 1,
-                    "Kurang Laris": 2
+                    "Sangat Laris": 1,
+                    "Cukup Laris": 2,
+                    "Kurang Laris": 3,
                 }
 
                 rekom["Prioritas"] = rekom["cluster_label"].map(prioritas_map).fillna(99).astype(int)
@@ -922,11 +923,12 @@ elif menu == "Sistem Rekomendasi":
                 st.write(f"**Kategori:** {kategori}")
                 st.write(f"**Sub Kategori:** {sub}")
                 st.write(f"**Target:** {target}")
-                st.info("Urutan rekomendasi ditampilkan dari cluster Laris ke Kurang Laris.")
+                st.info("Urutan rekomendasi ditampilkan dari cluster Sangat Laris ke Kurang Laris.")
 
-                tampil = rekom[["Produk", "qty", "frekuensi", "Harga_Jual", "Target"]].copy()
+                tampil = rekom[["Produk", "cluster_label", "qty", "frekuensi", "Harga_Jual", "Target"]].copy()
                 tampil = tampil.rename(columns={
                     "Produk": "Nama Barang",
+                    "cluster_label": "Cluster",
                     "qty": "Total Qty",
                     "frekuensi": "Frekuensi",
                     "Harga_Jual": "Harga Jual"
