@@ -688,22 +688,22 @@ elif menu == "Ringkasan Data":
         )
 
     with st.expander("Lihat Data Setelah Merge"):
-    tampil_merge = data_cluster[
-        [
-            "Kode",
-            "Tanggal",
-            "Produk",
-            "Harga",
-            "Jumlah",
-            "Total",
-            "Kategori",
-            "Sub_Kategori",
-            "Target",
-            "Harga_Jual",
-            "qty",
-            "frekuensi"
+        tampil_merge = data_cluster[
+            [
+                "Kode",
+                "Tanggal",
+                "Produk",
+                "Harga",
+                "Jumlah",
+                "Total",
+                "Kategori",
+                "Sub_Kategori",
+                "Target",
+                "Harga_Jual",
+                "qty",
+                "frekuensi"
+            ]
         ]
-    ]
 
     st.dataframe(
         tampil_merge.head(20),
