@@ -688,7 +688,28 @@ elif menu == "Ringkasan Data":
         )
 
     with st.expander("Lihat Data Setelah Merge"):
-        st.dataframe(data_cluster.head(20), use_container_width=True, hide_index=True)
+    tampil_merge = data_cluster[
+        [
+            "Kode",
+            "Tanggal",
+            "Produk",
+            "Harga",
+            "Jumlah",
+            "Total",
+            "Kategori",
+            "Sub_Kategori",
+            "Target",
+            "Harga_Jual",
+            "qty",
+            "frekuensi"
+        ]
+    ]
+
+    st.dataframe(
+        tampil_merge.head(20),
+        use_container_width=True,
+        hide_index=True
+    )
 
 # =========================
 # HALAMAN 3: CLUSTERING
