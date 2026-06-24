@@ -420,10 +420,10 @@ hasil_all_k2, inertia_all_k2, dbi_all_k2, sil_all_k2, km_all_k2, centroid_all_k2
 # model pembanding = K=3
 hasil_all_k3, inertia_all_k3, dbi_all_k3, sil_all_k3, km_all_k3, centroid_all_k3 = proses_kmeans(data, 3)
 
-# data cluster utama untuk sistem rekomendasi menggunakan K=2
+# data cluster utama untuk sistem rekomendasi menggunakan K=3
 data_cluster = pd.merge(
     data,
-    hasil_all_k2[["Produk", "cluster", "cluster_label", "qty", "frekuensi"]],
+    hasil_all_k3[["Produk", "cluster", "cluster_label", "qty", "frekuensi"]],
     on="Produk",
     how="left"
 )
